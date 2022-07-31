@@ -23,17 +23,34 @@ public class MonkeyTypewriter {
         // Do all of the Monkey / Thread building here
         // For each Copier(one safe and one unsafe), create and start 5 monkeys copying the introduction to
         // A Tale Of Two Cities.
+        UnsafeCopier copier = new UnsafeCopier(introduction);
+        SafeCopier copier1 = new SafeCopier(introduction);
 
-       UnsafeCopier monkey1 = new UnsafeCopier(introduction);
-        UnsafeCopier monkey2 =  new UnsafeCopier(introduction);
-        UnsafeCopier monkey3 = new UnsafeCopier(introduction);
-        UnsafeCopier monkey4 = new UnsafeCopier(introduction);
-       UnsafeCopier monkey5 = new UnsafeCopier(introduction);
-       SafeCopier monkey6 = new SafeCopier(introduction);
-        SafeCopier monkey7 = new SafeCopier(introduction);
-        SafeCopier monkey8 = new SafeCopier(introduction);
-        SafeCopier monkey9 = new SafeCopier(introduction);
-        SafeCopier monkey10 = new SafeCopier(introduction);
+        Thread monke = new Thread(copier);
+        Thread monke1 = new Thread(copier);
+        Thread monke2 = new Thread(copier);
+        Thread monke3 = new Thread(copier);
+        Thread monke4 = new Thread(copier);
+        monke.start();
+        monke1.start();
+        monke2.start();
+        monke3.start();
+        monke4.start();
+
+
+
+        Thread monkey = new Thread(copier1);
+        Thread monkey1 = new Thread(copier1);
+        Thread monkey2 = new Thread(copier1);
+        Thread monkey3 = new Thread(copier1);
+        Thread monkey4 = new Thread(copier1);
+        monkey.start();
+        monkey1.start();
+        monkey2.start();
+        monkey3.start();
+        monkey4.start();
+
+
 
 
 
@@ -41,21 +58,26 @@ public class MonkeyTypewriter {
         // This wait is here because main is still a thread and we want the main method to print the finished copies
         // after enough time has passed.
         try {
-            Thread.sleep(1000);
+            Thread.sleep(10000);
         } catch(InterruptedException e) {
             System.out.println("MAIN INTERRUPTED");
         }
-//        monkey1.run();
-//        monkey2.run();
-//        monkey3.run();
-//        monkey4.run();
-//        monkey5.run();
-        monkey6.run();
-        monkey7.run();
-        monkey8.run();
-        monkey9.run();
-        monkey10.run();
+
 
         // Print out the copied versions here.
+        monke.run();
+        monke1.run();
+        monke3.run();
+        monke2.run();
+        monke4.run();
+
+
+        monkey.run();
+        monkey1.run();
+        monkey2.run();
+        monkey3.run();
+        monkey4.run();
+
+
     }
 }
